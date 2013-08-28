@@ -20,18 +20,18 @@
     <script type="text/javascript">
         var _ = require('underscore')._;
         var angularDeps = [
-          "angular",
-          // "lib/CornerCouch/angular-cornercouch",
-          "js/angular/app",
-          "js/angular/services",
-          "js/angular/controllers",
-          "js/angular/filters",
-          "js/angular/directives"
+          'angular',
+          // 'lib/CornerCouch/angular-cornercouch',
+          'js/angular/app',
+          'js/angular/services',
+          'js/angular/controllers',
+          'js/angular/filters',
+          'js/angular/directives'
         ];
         _.each(angularDeps, require);
 
       angular.element(document).ready(function() {
-        angular.bootstrap(document, ["myApp"]);
+        angular.bootstrap(document, ['myApp']);
       });
     </script>
   </body>
