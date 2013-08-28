@@ -31,6 +31,10 @@ angular.module('myApp.controllers', ['CornerCouch']).
       $scope.todos.list.push({text:$scope.todoText, done:false});
       $scope.todoText = '';
     };
+    
+    $scope.saveTodo = function() {
+      $scope.todos.save();
+    };
 
     $scope.remaining = function() {
       var count = 0;
