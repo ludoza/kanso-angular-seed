@@ -19,8 +19,7 @@ angular.module('myApp.controllers', ['CornerCouch']).
         // when the response is available
       })
       .error(function(data, status, headers, config) {
-        
-        $scope.todos = $scope.db.newDoc({
+        _.extend( $scope.todos, { _id: 'todos',
           list: [
             {text:'learn angular', done:true},
             {text:'build an angular app', done:false}
