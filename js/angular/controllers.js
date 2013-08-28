@@ -2,14 +2,14 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
+angular.module('myApp.controllers', ['CornerCouch']).
   controller('MyCtrl1', [function() {
 
   }])
   .controller('MyCtrl2', [function() {
 
   }])
-  .controller('TodoCtrl', ['$scope', function ($scope) {
+  .controller('TodoCtrl', ['$scope', function ($scope, cornercouch) {
     $scope.todos = [
       {text:'learn angular', done:true},
       {text:'build an angular app', done:false}];
