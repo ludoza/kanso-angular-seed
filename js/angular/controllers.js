@@ -9,13 +9,26 @@ angular.module('myApp.controllers', ['CornerCouch']).
   .controller('MyCtrl2', [function() {
 
   }])
-  .controller('TodoCtrl', ['$scope', function ($scope, cornercouch) {
-    $scope.todos = [
-      {text:'learn angular', done:true},
-      {text:'build an angular app', done:false}];
-
+  .controller('TodoCtrl', ['$scope', 'cornercouch', function ($scope, cornercouch) {
+    $scope.server = cornercouch();
+    $scope.db = $scope.server.getDB('example');
+    $scope.todos = $scope.db.newDoc();
+    $scope.todos.load('todos')
+      .success(function(data, status, headers, config) {
+        // this callback will be called asynchronously
+        // when the response is available
+      })
+      .error(function(data, status, headers, config) {
+        
+        $scope.todos = $scope.db.newDoc({
+          list: [
+            {text:'learn angular', done:true},
+            {text:'build an angular app', done:false}
+          ]});
+      });
+    
     $scope.addTodo = function() {
-      $scope.todos.push({text:$scope.todoText, done:false});
+      $scope.todos.list.push({text:$scope.todoText, done:false});
       $scope.todoText = '';
     };
 
@@ -31,7 +44,7 @@ angular.module('myApp.controllers', ['CornerCouch']).
       var oldTodos = $scope.todos;
       $scope.todos = [];
       angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) $scope.todos.push(todo);
+        if (!todo.done) $scope.todos.list.push(todo);
       });
     };
   }]);
