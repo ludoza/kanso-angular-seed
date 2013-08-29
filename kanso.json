@@ -3,6 +3,8 @@
     "version": "0.0.1",
     "description": "a Kanso application with angular",
     "attachments": ["static", "index.html"],
+    "modules": [ "js", "lib" ],
+    "load": "js/couchapp",
     "dependencies": {
         "angular": null,
         "attachments": null,
@@ -10,7 +12,5 @@
         "modules": null,
         "settings": null,
         "underscore": null
-    },
-    "modules": [ "js" ],
-    "load": "js/couchapp"
+    }
 }
