@@ -1,1 +1,6 @@
+#kanso
 packages
+
+#angular-seed
+logs/*
+!.gitkeep
