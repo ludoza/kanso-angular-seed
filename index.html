@@ -19,17 +19,19 @@
     <script src="modules.js"></script> <!-- shared code with kanso -->
     <script type="text/javascript">
         var _ = require('underscore')._;
-        var angularDeps = [
-          'angular',
-          'js/lib/CornerCouch/angular-cornercouch',
-          'js/angular/app',
-          'js/angular/services',
-          'js/angular/controllers',
-          'js/angular/filters',
-          'js/angular/directives'
-        ];
-        _.each(angularDeps, require);
-
+        (function() {
+          var modules = [
+            'angular',
+            'lib/CornerCouch/angular-cornercouch',
+            'js/angular/app',
+            'js/angular/services',
+            'js/angular/controllers',
+            'js/angular/filters',
+            'js/angular/directives'
+          ];
+          _.each(modules, require);
+        })();
+        
       angular.element(document).ready(function() {
         angular.bootstrap(document, ['myApp']);
       });

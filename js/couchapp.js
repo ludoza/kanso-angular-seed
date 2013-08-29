@@ -1,4 +1,4 @@
-module.exports = {
+exports = module.exports = {
   //views: require('./views'),
   //shows: require('./shows'),
   //rewrites: require('./rewrites'),
